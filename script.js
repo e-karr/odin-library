@@ -1,4 +1,4 @@
-let myLibrary = [
+const myLibrary = [
   { title: 'Hello', author: 'World', pages: 120, read: true },
   { title: 'World', author: 'Hello', pages: 200, read: false },
   { title: 'Dog Days', author: 'Hammond Karr', pages: 500, read: true },
@@ -12,15 +12,15 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  let newBook = Book(title, author, pages, read);
+  const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
 
-let libraryContainer = document.getElementById('library-container');
+const libraryContainer = document.getElementById('library-container');
 
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
-  for (let book of libraryArray) {
+  for (const book of libraryArray) {
     libraryHTML += `
       <div>
         <h3>Title: ${book.title}</h3>
