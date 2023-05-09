@@ -21,6 +21,10 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(newBook);
 }
 
+function removeBook(index) {
+  myLibrary.splice(index, 1);
+}
+
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
   for (let i = 0; i < libraryArray.length; i++) {
