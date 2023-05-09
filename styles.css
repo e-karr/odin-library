@@ -6,6 +6,7 @@
     --tea-green: #C1D7AE;
     --dutch-white: #ECDCB0;
     --apricot: #FFCAB1;
+    --button-text-color: rgb(81, 80, 80);
 }
 
 body {
@@ -44,5 +45,5 @@ header {
     align-self: center;
     padding: 5px 10px;
     font-size: 1.25rem;
-    color: rgb(81, 80, 80)
+    color: var(--button-text-color);
 }
