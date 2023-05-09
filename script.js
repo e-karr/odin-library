@@ -1,3 +1,8 @@
+// Global variables
+const libraryContainer = document.getElementById('library-container');
+const addBookButton = document.getElementById('add-book');
+const addBookForm = document.querySelector('form');
+
 const myLibrary = [
   { title: 'Hello', author: 'World', pages: 120, read: true },
   { title: 'World', author: 'Hello', pages: 200, read: false },
@@ -15,8 +20,6 @@ function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
-
-const libraryContainer = document.getElementById('library-container');
 
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
@@ -36,3 +39,7 @@ function displayLibrary(libraryArray) {
 }
 
 libraryContainer.innerHTML = displayLibrary(myLibrary);
+
+addBookButton.addEventListener('click', () => {
+  addBookForm.style.visibility = 'visible';
+});
