@@ -13,6 +13,8 @@ body {
     min-height: 100vh;
     background-color: var(--battleship-grey);
     font-family: 'Rubik', sans-serif;
+    display: grid;
+    grid-template-rows: 80px 1fr 20px;
 }
 
 body,
@@ -33,7 +35,7 @@ form {
 header {
     display: flex;
     justify-content: space-around;
-    padding: 25px;
+    padding: 15px 25px;
     background-color: var(--pistachio);
     box-shadow: -5px 5px 2rem var(--apricot), 5px 5px 2rem var(--apricot);
 }
