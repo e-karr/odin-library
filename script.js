@@ -35,11 +35,25 @@ function displayLibrary(libraryArray) {
     `;
   }
 
-  return libraryHTML;
+  libraryContainer.innerHTML = libraryHTML;
 }
 
-libraryContainer.innerHTML = displayLibrary(myLibrary);
+window.addEventListener('load', () => displayLibrary(myLibrary));
 
 addBookButton.addEventListener('click', () => {
   addBookForm.style.visibility = 'visible';
+});
+
+addBookForm.addEventListener('submit', (event) => {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = parseInt(document.getElementById('pages').value);
+  const read = document.getElementById('read').checked;
+
+  addBookToLibrary(title, author, pages, read);
+  displayLibrary(myLibrary);
+
+  addBookForm.style.visibility = 'hidden';
+  addBookForm.reset();
+  event.preventDefault();
 });
