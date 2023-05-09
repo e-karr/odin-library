@@ -2,6 +2,7 @@
 const libraryContainer = document.getElementById('library-container');
 const addBookButton = document.getElementById('add-book');
 const addBookForm = document.querySelector('form');
+const cancelAddBookButton = document.getElementById('cancel-add');
 
 const myLibrary = [
   { title: 'Hello', author: 'World', pages: 120, read: true },
@@ -33,7 +34,7 @@ function changeReadStatus(index) {
     myLibrary[index].read = true;
   }
 
-  displayLibrary(myLibrary)
+  displayLibrary(myLibrary);
 }
 
 function displayLibrary(libraryArray) {
@@ -45,8 +46,8 @@ function displayLibrary(libraryArray) {
         <h4>Author: ${libraryArray[i].author}</h4>
         <p>Pages: ${libraryArray[i].pages}</p>
         <button type=button onclick=changeReadStatus(${i})>${
-          libraryArray[i].read ? 'Read' : 'Not Read'
-        }</button>
+      libraryArray[i].read ? 'Read' : 'Not Read'
+    }</button>
         <button onclick=removeBook(${i})>Remove</button>
       </div>
     `;
@@ -59,6 +60,11 @@ window.addEventListener('load', () => displayLibrary(myLibrary));
 
 addBookButton.addEventListener('click', () => {
   addBookForm.style.visibility = 'visible';
+});
+
+cancelAddBookButton.addEventListener('click', () => {
+  addBookForm.style.visibility = 'hidden'
+  addBookForm.reset();
 });
 
 addBookForm.addEventListener('submit', (event) => {
