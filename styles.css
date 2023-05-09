@@ -10,7 +10,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--battleship-grey);
     font-family: 'Rubik', sans-serif;
 }
@@ -42,6 +42,11 @@ footer {
     text-align: center;
     color: white;
     font-size: .75rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
 }
 
 #add-book {
