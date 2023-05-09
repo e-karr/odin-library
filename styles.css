@@ -36,3 +36,13 @@ header {
     background-color: var(--pistachio);
     box-shadow: -5px 5px 2rem var(--apricot), 5px 5px 2rem var(--apricot);
 }
+
+#add-book {
+    background-color: var(--apricot);
+    border: none;
+    border-radius: 10px;
+    align-self: center;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    color: rgb(81, 80, 80)
+}
