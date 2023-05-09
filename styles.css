@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 :root {
     --battleship-grey: #968E85;
     --pistachio: #8CC084;
@@ -9,6 +11,7 @@
 body {
     height: 100vh;
     background-color: var(--battleship-grey);
+    font-family: 'Rubik', sans-serif;
 }
 
 body,
