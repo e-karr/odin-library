@@ -26,6 +26,16 @@ function removeBook(index) {
   displayLibrary(myLibrary);
 }
 
+function changeReadStatus(index) {
+  if (myLibrary[index].read) {
+    myLibrary[index].read = false;
+  } else {
+    myLibrary[index].read = true;
+  }
+
+  displayLibrary(myLibrary)
+}
+
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
   for (let i = 0; i < libraryArray.length; i++) {
@@ -34,7 +44,7 @@ function displayLibrary(libraryArray) {
         <h3>Title: ${libraryArray[i].title}</h3>
         <h4>Author: ${libraryArray[i].author}</h4>
         <p>Pages: ${libraryArray[i].pages}</p>
-        <button type=button>${
+        <button type=button onclick=changeReadStatus(${i})>${
           libraryArray[i].read ? 'Read' : 'Not Read'
         }</button>
         <button onclick=removeBook(${i})>Remove</button>
