@@ -23,13 +23,13 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
-  for (const book of libraryArray) {
+  for (let i = 0; i < libraryArray.length; i++) {
     libraryHTML += `
-      <div>
-        <h3>Title: ${book.title}</h3>
-        <h4>Author: ${book.author}</h4>
-        <p>Pages: ${book.pages}</p>
-        <button type=button>${book.read ? 'Read' : 'Not Read'}</button>
+      <div data-index=${i}>
+        <h3>Title: ${libraryArray[i].title}</h3>
+        <h4>Author: ${libraryArray[i].author}</h4>
+        <p>Pages: ${libraryArray[i].pages}</p>
+        <button type=button>${libraryArray[i].read ? 'Read' : 'Not Read'}</button>
         <button>Remove</button>
       </div>
     `;
