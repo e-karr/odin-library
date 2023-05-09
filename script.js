@@ -23,18 +23,21 @@ function addBookToLibrary(title, author, pages, read) {
 
 function removeBook(index) {
   myLibrary.splice(index, 1);
+  displayLibrary(myLibrary);
 }
 
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
   for (let i = 0; i < libraryArray.length; i++) {
     libraryHTML += `
-      <div data-index=${i}>
+      <div>
         <h3>Title: ${libraryArray[i].title}</h3>
         <h4>Author: ${libraryArray[i].author}</h4>
         <p>Pages: ${libraryArray[i].pages}</p>
-        <button type=button>${libraryArray[i].read ? 'Read' : 'Not Read'}</button>
-        <button>Remove</button>
+        <button type=button>${
+          libraryArray[i].read ? 'Read' : 'Not Read'
+        }</button>
+        <button onclick=removeBook(${i})>Remove</button>
       </div>
     `;
   }
