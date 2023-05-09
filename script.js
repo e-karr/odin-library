@@ -42,9 +42,9 @@ function displayLibrary(libraryArray) {
   for (let i = 0; i < libraryArray.length; i++) {
     libraryHTML += `
       <div>
-        <h3>Title: ${libraryArray[i].title}</h3>
-        <h4>Author: ${libraryArray[i].author}</h4>
-        <p>Pages: ${libraryArray[i].pages}</p>
+        <h3>${libraryArray[i].title}</h3>
+        <h4>by ${libraryArray[i].author}</h4>
+        <p>${libraryArray[i].pages} pages</p>
         <button type=button onclick=changeReadStatus(${i})>${
       libraryArray[i].read ? 'Read' : 'Not Read'
     }</button>
