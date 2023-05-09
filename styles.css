@@ -38,6 +38,12 @@ header {
     box-shadow: -5px 5px 2rem var(--apricot), 5px 5px 2rem var(--apricot);
 }
 
+footer {
+    text-align: center;
+    color: white;
+    font-size: .75rem;
+}
+
 #add-book {
     background-color: var(--apricot);
     border: none;
