@@ -1,3 +1,29 @@
+:root {
+    --battleship-grey: #968E85;
+    --pistachio: #8CC084;
+    --tea-green: #C1D7AE;
+    --dutch-white: #ECDCB0;
+    --apricot: #FFCAB1;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--battleship-grey);
+}
+
+body,
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
 form {
     visibility: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+    background-color: var(--pistachio);
 }
