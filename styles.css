@@ -18,7 +18,9 @@ body {
 }
 
 body,
-h1 {
+h1,
+h3,
+h4 {
     margin: 0;
     padding: 0;
 }
@@ -37,7 +39,7 @@ header {
     justify-content: space-around;
     padding: 15px 25px;
     background-color: var(--pistachio);
-    box-shadow: -5px 5px 2rem var(--apricot), 5px 5px 2rem var(--apricot);
+    box-shadow: 0 0 2rem white;
 }
 
 footer {
@@ -48,6 +50,17 @@ footer {
 
 main {
     text-align: center;
+}
+
+.book {
+    background-color: var(--tea-green);
+    border-radius: 10px;
+    padding: 15px;
+    height: 200px;
+    box-shadow: 0 0 10px rgb(80, 78, 78);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #add-book {
@@ -65,4 +78,6 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     /* border: 1px solid red; */
     /* justify-content: center; */
+    gap: 30px;
+    padding: 50px 30px 20px;
 }
