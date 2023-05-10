@@ -32,6 +32,50 @@ h1 {
 
 form {
     visibility: hidden;
+    position: absolute;
+    background-color: rgba(65, 63, 63, 0.71);
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+label{
+    text-align: left;
+    width: 55px;
+    font-size: 1.25rem;
+}
+
+form .text {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+form .checkbox {
+    display: flex;
+    gap: 16px;
+}
+
+input[type=text],
+input[type=number] {
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=checkbox] {
+    align-self: center;
+    transform: scale(2);
+}
+
+button[type=submit] {
+    background-color: var(--pistachio);
 }
 
 header {
@@ -50,6 +94,7 @@ footer {
 
 main {
     text-align: center;
+    position: relative;
 }
 
 .book {
@@ -84,6 +129,18 @@ main {
 
 .remove {
     background-color: var(--dutch-white);
+}
+
+#cancel-add, button[type=submit] {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    color: var(--button-text-color);
+}
+
+#cancel-add {
+    background-color: var(--apricot);
 }
 
 #add-book {
