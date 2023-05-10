@@ -45,8 +45,10 @@ function displayLibrary(libraryArray) {
 
   if (libraryArray.length === 0) {
     emptyLibrary.style.display = 'block';
+    libraryContainer.style.display = 'none';
   } else {
-    emptyLibrary.style.display = 'none';
+    libraryContainer.style.display = 'grid';
+
     for (let i = 0; i < libraryArray.length; i++) {
       libraryHTML += `
         <div class=book>
@@ -64,7 +66,7 @@ function displayLibrary(libraryArray) {
         </div>
       `;
     }
-
+    emptyLibrary.style.display = 'none';
     libraryContainer.innerHTML = libraryHTML;
   }
 }

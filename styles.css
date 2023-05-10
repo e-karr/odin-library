@@ -156,8 +156,6 @@ main {
 #library-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 20%));
-    /* border: 1px solid red; */
-    /* justify-content: center; */
     gap: 30px;
     padding: 50px 30px 20px;
 }
