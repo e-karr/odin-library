@@ -47,8 +47,7 @@ footer {
 }
 
 main {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
 }
 
 #add-book {
@@ -59,4 +58,11 @@ main {
     padding: 5px 10px;
     font-size: 1.25rem;
     color: var(--button-text-color);
+}
+
+#library-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* border: 1px solid red; */
+    /* justify-content: center; */
 }

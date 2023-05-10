@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 // Global variables
 const libraryContainer = document.getElementById('library-container');
 const addBookButton = document.getElementById('add-book');
@@ -63,7 +64,7 @@ addBookButton.addEventListener('click', () => {
 });
 
 cancelAddBookButton.addEventListener('click', () => {
-  addBookForm.style.visibility = 'hidden'
+  addBookForm.style.visibility = 'hidden';
   addBookForm.reset();
 });
 
