@@ -63,6 +63,28 @@ main {
     justify-content: space-between;
 }
 
+.read-status,
+.remove {
+    border: none;
+    border-radius: 10px;
+    font-size: .85rem;
+    color: var(--button-text-color);
+    padding: 5px 10px;
+    width: 80px;
+}
+
+.read-status {
+    background-color: var(--pistachio);
+}
+
+.not-read {
+    background-color: var(--apricot);
+}
+
+.remove {
+    background-color: var(--dutch-white);
+}
+
 #add-book {
     background-color: var(--apricot);
     border: none;
@@ -75,7 +97,7 @@ main {
 
 #library-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 20%));
     /* border: 1px solid red; */
     /* justify-content: center; */
     gap: 30px;

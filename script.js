@@ -47,9 +47,9 @@ function displayLibrary(libraryArray) {
         <h4>by ${libraryArray[i].author}</h4>
         <p>${libraryArray[i].pages} pages</p>
         <div>
-          <button type=button onclick=changeReadStatus(${i})>${
+          <button class=read-status type=button onclick=changeReadStatus(${i})>${
         libraryArray[i].read ? 'Read' : 'Not Read'}</button>
-          <button onclick=removeBook(${i})>Remove</button>
+          <button class=remove onclick=removeBook(${i})>Remove</button>
         </div>
       </div>
     `;
