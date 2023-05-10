@@ -64,7 +64,8 @@ main {
 }
 
 .read-status,
-.remove {
+.remove,
+.not-read {
     border: none;
     border-radius: 10px;
     font-size: .85rem;

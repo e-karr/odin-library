@@ -29,10 +29,15 @@ function removeBook(index) {
 }
 
 function changeReadStatus(index) {
+  const readStatusButton = document.getElementById(`read-button${index}`);
   if (myLibrary[index].read) {
     myLibrary[index].read = false;
+    readStatusButton.classList.remove('read-status');
+    readStatusButton.classList.add('not-read');
   } else {
     myLibrary[index].read = true;
+    readStatusButton.classList.remove('not-read');
+    readStatusButton.classList.add('read-status');
   }
 
   displayLibrary(myLibrary);
@@ -47,8 +52,11 @@ function displayLibrary(libraryArray) {
         <h4>by ${libraryArray[i].author}</h4>
         <p>${libraryArray[i].pages} pages</p>
         <div>
-          <button class=read-status type=button onclick=changeReadStatus(${i})>${
-        libraryArray[i].read ? 'Read' : 'Not Read'}</button>
+          <button id=read-button${i} class=${
+      libraryArray[i].read ? 'read-status' : 'not-read'
+    } type=button onclick=changeReadStatus(${i})>${
+      libraryArray[i].read ? 'Read' : 'Not Read'
+    }</button>
           <button class=remove onclick=removeBook(${i})>Remove</button>
         </div>
       </div>
