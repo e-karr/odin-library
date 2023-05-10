@@ -161,3 +161,10 @@ main {
     gap: 30px;
     padding: 50px 30px 20px;
 }
+
+#empty {
+    display: none;
+    color: white;
+    font-size: 2rem;
+    margin-top: 50px;
+}

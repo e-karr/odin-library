@@ -4,12 +4,9 @@ const libraryContainer = document.getElementById('library-container');
 const addBookButton = document.getElementById('add-book');
 const addBookForm = document.querySelector('form');
 const cancelAddBookButton = document.getElementById('cancel-add');
+const emptyLibrary = document.getElementById('empty');
 
-const myLibrary = [
-  { title: 'Hello', author: 'World', pages: 120, read: true },
-  { title: 'World', author: 'Hello', pages: 200, read: false },
-  { title: 'Dog Days', author: 'Hammond Karr', pages: 500, read: true },
-];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -45,25 +42,31 @@ function changeReadStatus(index) {
 
 function displayLibrary(libraryArray) {
   let libraryHTML = '';
-  for (let i = 0; i < libraryArray.length; i++) {
-    libraryHTML += `
-      <div class=book>
-        <h3>${libraryArray[i].title}</h3>
-        <h4>by ${libraryArray[i].author}</h4>
-        <p>${libraryArray[i].pages} pages</p>
-        <div>
-          <button id=read-button${i} class=${
-      libraryArray[i].read ? 'read-status' : 'not-read'
-    } type=button onclick=changeReadStatus(${i})>${
-      libraryArray[i].read ? 'Read' : 'Not Read'
-    }</button>
-          <button class=remove onclick=removeBook(${i})>Remove</button>
-        </div>
-      </div>
-    `;
-  }
 
-  libraryContainer.innerHTML = libraryHTML;
+  if (libraryArray.length === 0) {
+    emptyLibrary.style.display = 'block';
+  } else {
+    emptyLibrary.style.display = 'none';
+    for (let i = 0; i < libraryArray.length; i++) {
+      libraryHTML += `
+        <div class=book>
+          <h3>${libraryArray[i].title}</h3>
+          <h4>by ${libraryArray[i].author}</h4>
+          <p>${libraryArray[i].pages} pages</p>
+          <div>
+            <button id=read-button${i} class=${
+        libraryArray[i].read ? 'read-status' : 'not-read'
+      } type=button onclick=changeReadStatus(${i})>${
+        libraryArray[i].read ? 'Read' : 'Not Read'
+      }</button>
+            <button class=remove onclick=removeBook(${i})>Remove</button>
+          </div>
+        </div>
+      `;
+    }
+
+    libraryContainer.innerHTML = libraryHTML;
+  }
 }
 
 window.addEventListener('load', () => displayLibrary(myLibrary));
