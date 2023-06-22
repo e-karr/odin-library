@@ -35,10 +35,13 @@ class Library {
 }
 
 function ScreenController() {
-  const library = new Library([new Book('Test', 'Jane Doe', 250, false)]);
+  const library = new Library();
 
   const emptyLibrary = document.getElementById('empty');
   const libraryContainer = document.getElementById('library-container');
+  const addBookButton = document.getElementById('add-book');
+  const addBookForm = document.querySelector('form');
+  const cancelBookButton = document.getElementById('cancel-add');
 
   const displayLibrary = () => {
     // clear the library
@@ -54,15 +57,12 @@ function ScreenController() {
 
         const title = document.createElement('h3');
         title.textContent = library.books[i].title;
-        book.appendChild(title);
 
         const author = document.createElement('h4');
         author.textContent = library.books[i].author;
-        book.appendChild(author);
 
         const pages = document.createElement('p');
         pages.textContent = `${library.books[i].pages} pages`;
-        book.appendChild(pages);
 
         const buttons = document.createElement('div');
 
@@ -87,10 +87,8 @@ function ScreenController() {
           displayLibrary();
         });
 
-        buttons.appendChild(readStatusButton);
-        buttons.appendChild(removeBookButton);
-        book.appendChild(buttons);
-
+        buttons.append(readStatusButton, removeBookButton);
+        book.append(title, author, pages, buttons);
         libraryContainer.appendChild(book);
       }
 
@@ -99,54 +97,37 @@ function ScreenController() {
     }
   };
 
+  const showAddBookForm = () => {
+    addBookForm.style.visibility = 'visible';
+  };
+
+  const cancelBook = () => {
+    addBookForm.style.visibility = 'hidden';
+    addBookForm.reset();
+  };
+
+  // event listeners
+  addBookButton.addEventListener('click', showAddBookForm);
+  cancelBookButton.addEventListener('click', cancelBook);
+
+  addBookForm.addEventListener('submit', (event) => {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = parseInt(document.getElementById('pages').value);
+    const read = document.getElementById('read').checked;
+
+    library.addBook(title, author, pages, read);
+
+    addBookForm.style.visibility = 'hidden';
+    addBookForm.reset();
+    event.preventDefault();
+
+    displayLibrary();
+  });
+
   // initial library display
   displayLibrary();
 }
 
+// eslint-disable-next-line new-cap
 ScreenController();
-
-// Global variables
-// const libraryContainer = document.getElementById('library-container');
-// const addBookButton = document.getElementById('add-book');
-// const addBookForm = document.querySelector('form');
-// const cancelAddBookButton = document.getElementById('cancel-add');
-// const emptyLibrary = document.getElementById('empty');
-
-// const myLibrary = [];
-
-// function Book(title, author, pages, read) {
-//   this.title = title;
-//   this.author = author;
-//   this.pages = pages;
-//   this.read = read;
-// }
-
-// function addBookToLibrary(title, author, pages, read) {
-//   const newBook = new Book(title, author, pages, read);
-//   myLibrary.push(newBook);
-// }
-
-// window.addEventListener('load', () => displayLibrary(myLibrary));
-
-// addBookButton.addEventListener('click', () => {
-//   addBookForm.style.visibility = 'visible';
-// });
-
-// cancelAddBookButton.addEventListener('click', () => {
-//   addBookForm.style.visibility = 'hidden';
-//   addBookForm.reset();
-// });
-
-// addBookForm.addEventListener('submit', (event) => {
-//   const title = document.getElementById('title').value;
-//   const author = document.getElementById('author').value;
-//   const pages = parseInt(document.getElementById('pages').value);
-//   const read = document.getElementById('read').checked;
-
-//   addBookToLibrary(title, author, pages, read);
-//   displayLibrary(myLibrary);
-
-//   addBookForm.style.visibility = 'hidden';
-//   addBookForm.reset();
-//   event.preventDefault();
-// });
