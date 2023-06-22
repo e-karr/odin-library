@@ -108,7 +108,7 @@ main {
     justify-content: space-between;
 }
 
-.read-status,
+.read,
 .remove,
 .not-read {
     border: none;
@@ -119,7 +119,11 @@ main {
     width: 80px;
 }
 
-.read-status {
+.read, .not-read {
+    margin-right: 5px;
+}
+
+.read {
     background-color: var(--pistachio);
 }
 
@@ -158,10 +162,11 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(200px, 20%));
     gap: 30px;
     padding: 50px 30px 20px;
+    visibility: visible;
 }
 
 #empty {
-    display: none;
+    visibility: hidden;
     color: white;
     font-size: 2rem;
     margin-top: 50px;
