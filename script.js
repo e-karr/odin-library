@@ -74,15 +74,18 @@ function ScreenController() {
           ? 'Read'
           : 'Not Read';
 
-        readStatusButton.addEventListener(
-          'click',
-          library.books[i].changeReadStatus
-        );
+        readStatusButton.addEventListener('click', () => {
+          library.books[i].changeReadStatus();
+          displayLibrary();
+        });
 
         const removeBookButton = document.createElement('button');
         removeBookButton.classList.add('remove');
         removeBookButton.textContent = 'Remove';
-        removeBookButton.addEventListener('click', library.removeBook(i));
+        removeBookButton.addEventListener('click', () => {
+          library.removeBook(i);
+          displayLibrary();
+        });
 
         buttons.appendChild(readStatusButton);
         buttons.appendChild(removeBookButton);
@@ -121,26 +124,6 @@ ScreenController();
 // function addBookToLibrary(title, author, pages, read) {
 //   const newBook = new Book(title, author, pages, read);
 //   myLibrary.push(newBook);
-// }
-
-// function removeBook(index) {
-//   myLibrary.splice(index, 1);
-//   displayLibrary(myLibrary);
-// }
-
-// function changeReadStatus(index) {
-//   const readStatusButton = document.getElementById(`read-button${index}`);
-//   if (myLibrary[index].read) {
-//     myLibrary[index].read = false;
-//     readStatusButton.classList.remove('read-status');
-//     readStatusButton.classList.add('not-read');
-//   } else {
-//     myLibrary[index].read = true;
-//     readStatusButton.classList.remove('not-read');
-//     readStatusButton.classList.add('read-status');
-//   }
-
-//   displayLibrary(myLibrary);
 // }
 
 // window.addEventListener('load', () => displayLibrary(myLibrary));
